@@ -2,6 +2,7 @@ ArrayList<Float> x;
 ArrayList<Float> y;
 ArrayList<Float> vx;
 ArrayList<Float> vy;
+ArrayList<Integer> ball_colors;
 
 void setup() {
   size(600,600);
@@ -9,24 +10,34 @@ void setup() {
   y= new ArrayList<Float>();
   vx= new ArrayList<Float>();
   vy= new ArrayList<Float>();
+  ball_colors=new ArrayList<Integer>();
   
  
-    for (int i=0; i<2000; i++){
+    for (int i=0; i<1000; i++){
     x.add(width/2.0);
     y.add(height/2.0);
     vx.add(random(-5,5));
     vy.add(random(-5,5));
+    ball_colors.add(color(random(255),random(255),random(255)));
 
     }
+    
+   
 }
    
     
 
 void draw() {
   background(255);
-    fill(100,50,130);
-   for (int i=0; i<2000; i++) {
+   // fill(100,50,130);
+   
+  
+   
+   
+   for (int i=0; i<1000; i++) {
     
+     //fill(random(255), random(255), random(255), random(255)); 
+     fill(ball_colors.get(i));
      ellipse(x.get(i),y.get(i),10,10);
     
      x.set(i,x.get(i)+vx.get(i));

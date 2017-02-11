@@ -36,7 +36,8 @@ void setup() {
     
     createArrayList();
     initArrayList();
-
+    update();
+    checkandBounce(); 
 
     }
     

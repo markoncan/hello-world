@@ -40,14 +40,31 @@ void setup() {
 
     }
     
-   
+void update(){
+ for (int i=0; i<100; i++){
+  x.set(i,x.get(i)+vx.get(i));
+  y.set(i,y.get(i)+vy.get(i));
+}  
+}
 
+void checkandBounce(){
+// If balls hit the edges then bounce back
+    for (int i=0; i<100; i++){
+     if ((x.get(i) < 0) || (x.get(i) > width) ) {
+         vx.set(i, -vx.get(i));
+     }
+            
+     if ((y.get(i) < 0) || (y.get(i) > height)) {
+         vy.set(i, -vy.get(i));
+     }  
 
+}
+}
 
 void draw() {
   background(255);
    // fill(100,50,130);
-   
+  //tint(192,192,192,0.3);
   
    
    
@@ -57,24 +74,13 @@ void draw() {
      fill(ball_colors.get(i));
      rect(x.get(i),y.get(i),4,4);
      ellipse(y.get(i),x.get(i),8,8);
-    
-     x.set(i,x.get(i)+vx.get(i));
-     y.set(i,y.get(i)+vy.get(i));
+     //triangle(x.get(i),y.get(i),y.get(i),x.get(i),x.get(i),y.get(i));
+     //triangle(width/2,0,height, 0, height, width);
      
-// If balls hit the edges then bounce back
-     if ((x.get(i) < 0) || (x.get(i) > width) ) {
-         vx.set(i, -vx.get(i));
-     }
-            
-     if ((y.get(i) < 0) || (y.get(i) > height)) {
-         vy.set(i, -vy.get(i));
-     }
-    
+   update();
+   checkandBounce(); 
      
-     
-     
-        
-           
+               
  }
 
 }

@@ -77,10 +77,10 @@ void draw() {
      //triangle(x.get(i),y.get(i),y.get(i),x.get(i),x.get(i),y.get(i));
      //triangle(width/2,0,height, 0, height, width);
      
-   update();
-   checkandBounce(); 
-     
+      
                
  }
+ update();
+ checkandBounce(); 
 
 }

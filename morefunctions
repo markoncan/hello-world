@@ -1,0 +1,80 @@
+// Declaring Array List
+
+ArrayList<Float> x;
+ArrayList<Float> y;
+ArrayList<Float> vx;
+ArrayList<Float> vy;
+ArrayList<Integer> ball_colors;
+float radious;
+
+void initArrayList() {
+  
+  for (int i=0; i<100; i++){
+      x.add(width/1.0);
+      y.add(height/1.0);
+      vx.add(random(-5,5));
+      vy.add(random(-5,5));
+      ball_colors.add(color(random(255),random(255),random(255)));
+  }
+}
+
+
+void createArrayList (){
+   x= new ArrayList<Float>();
+   y= new ArrayList<Float>();
+   vx= new ArrayList<Float>();
+   vy= new ArrayList<Float>();
+   ball_colors=new ArrayList<Integer>();
+   
+ }    
+   
+void setup() {
+  size(600,600);
+  //radius=5;
+  // Creates Array List
+    
+    
+    createArrayList();
+    initArrayList();
+
+
+    }
+    
+   
+
+
+
+void draw() {
+  background(255);
+   // fill(100,50,130);
+   
+  
+   
+   
+   for (int i=0; i<100; i++) {
+    
+     //fill(random(255), random(255), random(255), random(255)); 
+     fill(ball_colors.get(i));
+     rect(x.get(i),y.get(i),4,4);
+     ellipse(y.get(i),x.get(i),8,8);
+    
+     x.set(i,x.get(i)+vx.get(i));
+     y.set(i,y.get(i)+vy.get(i));
+     
+// If balls hit the edges then bounce back
+     if ((x.get(i) < 0) || (x.get(i) > width) ) {
+         vx.set(i, -vx.get(i));
+     }
+            
+     if ((y.get(i) < 0) || (y.get(i) > height)) {
+         vy.set(i, -vy.get(i));
+     }
+    
+     
+     
+     
+        
+           
+ }
+
+}
